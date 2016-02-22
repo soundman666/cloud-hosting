@@ -1,0 +1,24 @@
+{
+    "bootstrap": false,
+    "server": true,
+    "datacenter": "{{ docker_consul_dc }}",
+    "client_addr": "0.0.0.0",
+    "data_dir": "/data",
+    "ui_dir": "/ui",
+    "ports": {
+      "https": 8543
+    },
+    "encrypt": "{{ docker_consul_encrypt }}",
+    "ca_file": "/etc/consul.d/ssl/ca.cert",
+    "cert_file": "/etc/consul.d/ssl/consul.cert",
+    "key_file": "/etc/consul.d/ssl/consul.key",
+    "verify_incoming": true,
+    "verify_outgoing": true,
+    "log_level": "INFO",
+    "enable_syslog": false,
+    "start_join_wan": [
+        {% for item in docker_consul_start_join_wan %}
+            "{{ item }}"{% if not loop.last %},{% endif %}
+        {% endfor %}
+    ]
+}

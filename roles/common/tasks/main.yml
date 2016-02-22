@@ -1,0 +1,30 @@
+---
+# Common roles for all hosts
+
+- name: configures apt sources
+  template: 
+    src: sources.list.j2
+    dest: /etc/apt/sources.list
+    owner: root
+    group: root
+
+
+- name: 'updates apt cache & upgrades dist'
+  apt: 
+    upgrade: 'yes'
+    update_cache: 'yes'
+
+
+- name: installs the necessary software
+  apt: 
+    name: '{{ item }}'
+    update_cache: 'yes'
+    cache_valid_time: 3600
+  with_items:
+    - '{{ common_packages }}'
+
+
+# Require for 'pip' ansible module
+- name: installs the python pip module 
+  easy_install:
+    name: pip

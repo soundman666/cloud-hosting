@@ -1,0 +1,7 @@
+---
+
+docker_tls_dir: '/etc/docker/tls'
+docker_tls_ca_cert_file: '/etc/docker/tls/ca.pem'
+docker_tls_ca_key_file: '/etc/docker/tls/ca-key.pem'
+docker_tls_server_cert_file: '/etc/docker/tls/server-cert.pem'
+docker_tls_server_key_file: '/etc/docker/tls/server-key.pem'

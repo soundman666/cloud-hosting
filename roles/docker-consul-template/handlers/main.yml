@@ -1,0 +1,8 @@
+---
+
+- name: restart consul-template
+  docker:
+    docker_api_version: '{{ docker_api_version }}'
+    image: '{{ docker_consul_template_image }}'
+    name: consul-template
+    state: restarted

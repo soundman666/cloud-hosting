@@ -1,0 +1,13 @@
+---
+
+common_packages:
+  - sudo
+  - htop
+  - mc
+  - git
+  - apt-transport-https
+  - python-setuptools # easy_install (necessary for install python pip)
+
+
+debian_release: jessie
+certs_ca_password: 'qwe123'

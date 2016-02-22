@@ -1,0 +1,17 @@
+[dc1-cloud]
+82.196.13.144
+82.196.14.167
+82.196.14.193
+
+
+#--- in all DC ---#
+
+# cloud in all DC
+[cloud:children]
+dc1-cloud
+
+
+#--- everything in DC ---#
+
+[dc1:children]
+dc1-cloud
